@@ -475,9 +475,7 @@ namespace FarsiLibrary.Win.DevExpress
 
     public class PopupPersianCalendarControl : PopupCalendarControl, IPersianCalendarControl
     {
-#pragma warning disable CS0169
         private static PersianCalendar pc;
-#pragma warning restore CS0169
         private static PersianCultureInfo ci;
 
         static PopupPersianCalendarControl()
@@ -498,7 +496,7 @@ namespace FarsiLibrary.Win.DevExpress
         {
             if (ActualCalendarView == CalendarView.Vista)
                 return new VistaPersianCalendarViewInfo(this);
-
+            
             return new CalendarViewInfo(this);
         }
 
@@ -550,7 +548,7 @@ namespace FarsiLibrary.Win.DevExpress
             set { SuppressSetSelection = value; }
         }
 
-
+        
     }
 
     public class VistaPersianCalendarControlHandler : VistaCalendarControlHandler
@@ -571,7 +569,7 @@ namespace FarsiLibrary.Win.DevExpress
         protected override DateTime ExtractDateTimeFromCellDate(DateTime date)
         {
             PersianDate pd = date;
-
+            
             if (View == DateEditCalendarViewType.MonthInfo)
                 return new PersianDate(pd.Year, pd.Month, CorrectDay(pd.Year, pd.Month, pd.Day), pd.Hour, pd.Minute, pd.Second, pd.Millisecond);
 
